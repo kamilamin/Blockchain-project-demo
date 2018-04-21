@@ -14,7 +14,8 @@ class App extends Component {
     this.state = {
       sellerAccount: '',
       buyersAccount: '',
-      houseID: ''
+      houseID: '',
+      amount: ''
     }
     this.onPress = this.onPress.bind(this);
   };
@@ -27,15 +28,15 @@ class App extends Component {
   
   async onPress(ev){
     ev.preventDefault();
-    const { sellerAccount, buyersAccount, houseID } = this.state;
+    const { sellerAccount, buyersAccount, houseID, amount } = this.state;
     console.log('commiting payment');
     await RentHouse.methods.payRent(
       sellerAccount,
       buyersAccount,
-      houseID
+      parseInt(houseID)
     ).send({
       from: accounts[0],
-      gas: '3000000'
+      value: web3.utils.toWei(amount, 'ether')
     });
     console.log('commiting payment.... done')
   };
@@ -78,6 +79,17 @@ class App extends Component {
                       placeholder="House ID" 
                       aria-describedby="basic-addon1" 
                       onChange={ev => this.setState({houseID: ev.target.value})}
+                    />
+                </div>
+                <div className="input-group">
+                  <label>Enter Amount:</label>
+                  <input 
+                      type="text"
+                      class="form-control" 
+                      placeholder="Amount"
+                      aria-describedby="basic-addon1"
+                      value={this.state.amount}
+                      onChange={ev => this.setState({amount: ev.target.value})}
                     />
                 </div>
                 <button type="submit" class="btn btn-primary" 
