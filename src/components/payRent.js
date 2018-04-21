@@ -13,7 +13,7 @@ class payRent extends Component {
 
   async componentDidMount() {
     accounts = await web3.eth.getAccounts();
-    
+    console.log(accounts);
   };
   
   async onPress(ev){

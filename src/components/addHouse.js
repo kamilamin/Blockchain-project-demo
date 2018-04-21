@@ -32,7 +32,11 @@ class AddHouse extends Component {
 
     console.log('commiting transaction');
     await RentHouse.methods.setHouse(
-      SellerName, parseInt(propertyID), parseInt(no_of_beds), accountAddress, web3.utils.toWei(cost, 'ether')).send({
+      SellerName,
+      parseInt(propertyID),
+      parseInt(no_of_beds),
+      accountAddress,
+      web3.utils.toWei(cost, 'ether')).send({
         from: accounts[0],
         gas: '3000000'
       });
@@ -80,36 +84,39 @@ class AddHouse extends Component {
             <div className="input-group">
               <div>
                 <label>Enter Property ID:</label>
-                <input 
-                    type="text" 
-                    class="form-control" 
-                    placeholder="Property ID" 
-                    aria-describedby="basic-addon1" 
+                <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Property ID"
+                    aria-describedby="basic-addon1"
+                    required
                     onChange={(ev) => {this.setState({propertyID: ev.target.value})}}
                   />
               </div>
               <label>Enter Sellers Name:</label>
-              <input 
-                    type="text" 
-                    class="form-control" 
-                    placeholder="Seller Name" 
-                    aria-describedby="basic-addon1" 
+              <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Seller Name"
+                    aria-describedby="basic-addon1"
+                    required
                     onChange={(ev) => {this.setState({SellerName: ev.target.value})}}
                   />
               </div>
               <div className="input-group">
                 <label>Enter Numbers of Bed:</label>
-                <input 
-                    type="text" 
-                    class="form-control" 
-                    placeholder="No. of Bed" 
-                    aria-describedby="basic-addon1" 
+                <input
+                    type="text"
+                    class="form-control"
+                    placeholder="No. of Bed"
+                    aria-describedby="basic-addon1"
+                    required
                     onChange={ev => this.setState({no_of_beds: ev.target.value})}
                   />
               </div>
               <div className="input-group">
                 <label>Enter Account Address:</label>
-                <input 
+                <input
                     type="text" 
                     class="form-control" 
                     placeholder="Account Address" 
@@ -119,11 +126,12 @@ class AddHouse extends Component {
               </div>
               <div className="input-group">
                 <label>Enter Cost Of House:</label>
-                <input 
-                    type="text" 
-                    class="form-control" 
-                    placeholder="Cost of House" 
-                    aria-describedby="basic-addon1" 
+                <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Cost of House"
+                    aria-describedby="basic-addon1"
+                    required
                     onChange={(ev) => {this.setState({cost: ev.target.value})}}
                   />
               </div>
