@@ -24,10 +24,10 @@ class payRent extends Component {
 
   render() {
     return (
-        <div style={{marginTop: '50%'}}>
+        <div>
           <div style={{marginLeft: '10px'}}>
             
-            <div className="input-group" style={{marginLeft: '50%'}}>
+            <div className="input-group">
             <h3>Payment</h3>
               <div>
                 <label>Enter Seller's Account Address:</label>

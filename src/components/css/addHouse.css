@@ -1,0 +1,13 @@
+/* Style Code for Get All House IDS */
+.GetHouses {
+    margin-left: 10px;
+    /* border-width: 1px; 
+    border-style: solid; */
+    width: 40%;
+    margin-top: 20px;
+    padding: 15px;
+}
+.GetHouseText {
+    text-align: center;
+    margin-top: 7px;
+}

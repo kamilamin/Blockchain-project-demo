@@ -10,7 +10,9 @@ class App extends Component {
       <div>
           <AddHouse />
           <Buyers />
-          {/* <payRent /> */}
+          {/* <div>
+            <payRent />
+          </div> */}
       </div>
     );
   }

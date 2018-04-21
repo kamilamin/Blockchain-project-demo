@@ -1,0 +1,18 @@
+/* Get the list Buyers Account Address */
+.buyersAddress {
+    float: right;
+    margin-right: 16%;
+    margin-top: -11%;
+    /* border-width: 1px;
+    border-style: solid; */
+    padding: 10px;
+}
+.maindiv {
+    margin-left: 10px;
+    /* border-width: 1px; 
+    border-style: solid; */
+    padding: 20px;
+    float: right;
+    margin-top: -47%;
+    margin-right: 10%;
+}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import web3 from '../web3';
 import RentHouse from '../demo';
+import './css/buyers.css';
 
 let accounts;
 
@@ -19,11 +20,7 @@ class Buyers extends Component {
 
   async componentDidMount() {
     accounts = await web3.eth.getAccounts();
-    // await RentHouse.methods.getListOfHouseBuyers().call().then((address) => {
-    //   this.setState({
-    //     listOfBuyersAddress: [...address]
-    //   });
-    // });
+    
   };
   
   async onPress(ev){
@@ -54,9 +51,8 @@ class Buyers extends Component {
     const address = listOfBuyersAddress.map((value) => <li key={value.toString()}>{value}</li>)
     return (
         <div>
-          <div style={{marginLeft: '10px'}}>
-            
-            <div className="input-group" style={{marginLeft: '50%', marginTop: '-480px'}}>
+          <div >
+            <div className="input-group maindiv" style={{}}>
             <h3>Add House Buyers</h3>
               <div>
                 <label>Enter Buyer Name:</label>
@@ -89,15 +85,14 @@ class Buyers extends Component {
               <button type="submit" class="btn btn-primary" 
                       style={{marginTop: '10px'}}
                       onClick={this.onPress}> Submit </button>
-                <div style={{marginLeft: '10px'}}>
+              </div>
+              <div className="buyersAddress">
                 <h3>Get ALL Buyers Account Address</h3>
                   <button onClick={this.buyersAccount} class="btn btn-primary">Get List OF Houses ID</button>
                     <ul>
                       {address}
                     </ul>
                 </div>
-              </div>
-              
           </div>
       </div>
     );

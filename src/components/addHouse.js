@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import web3 from '../web3';
 import RentHouse from '../demo';
+import './css/addHouse.css';
 
 let accounts;
 
@@ -21,11 +22,7 @@ class AddHouse extends Component {
 
   async componentDidMount() {
     accounts = await web3.eth.getAccounts();
-    // await RentHouse.methods.getListOfHouses().call().then( (list) => {
-    //   this.setState({
-    //     listOfHouses: [...list]
-    //   });
-    // });
+
   };
   
   async onPress(event){
@@ -49,7 +46,7 @@ class AddHouse extends Component {
         listOfHouses: [...list]
       });
     });
-  }
+  };
 
 
   render() {
@@ -134,8 +131,8 @@ class AddHouse extends Component {
                       style={{marginTop: '10px'}}
                       onClick={this.onPress}> Submit </button>
           </div>
-          <div style={{marginLeft: '10px'}}>
-            <h3>Get ALL House IDs</h3>
+          <div className='GetHouses'>
+            <h3 className="GetHouseText">Get ALL House IDs</h3>
               <button onClick={this.getHousesID} class="btn btn-primary">Get List OF Houses ID</button>
                 <ul>
                   {housesID}
