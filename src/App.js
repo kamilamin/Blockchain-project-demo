@@ -4,7 +4,6 @@ import web3 from './web3';
 import RentHouse from './demo';
 import AddHouse from './components/addHouse';
 import Buyers from './components/buyer';
-// import payRent from './components/payRent';
 
 let accounts;
 
@@ -22,8 +21,9 @@ class App extends Component {
 
   async componentDidMount() {
     accounts = await web3.eth.getAccounts();
-    console.log(accounts);
-    
+    console.log(accounts[0]);
+    const balance = await web3.eth.getBalance(RentHouse.options.address);
+    console.log(balance);
   };
   
   async onPress(ev){
@@ -35,19 +35,18 @@ class App extends Component {
       buyersAccount,
       parseInt(houseID)
     ).send({
-      from: accounts[0],
+      to: sellerAccount,
+      from: buyersAccount,
       value: web3.utils.toWei(amount, 'ether')
     });
     console.log('commiting payment.... done')
   };
+
   render() {
     return (
       <div>
           <AddHouse />
           <Buyers />
-          {/* <div>
-            <payRent />
-          </div> */}
           <div>
           <div>
             <div style={{marginLeft: '10px'}}>
